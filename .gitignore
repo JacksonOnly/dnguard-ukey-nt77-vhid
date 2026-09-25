@@ -1,0 +1,56 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+
+# CMake and generated build/package directories
+out/
+bin/
+work/
+publish/
+driver/x64/
+driver/Debug/
+driver/Release/
+driver/Fixed/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+build.ninja
+compile_commands.json
+
+# Compiled objects, libraries, executables, and driver packages
+*.obj
+*.o
+*.pch
+*.pdb
+*.ilk
+*.idb
+*.ipch
+*.sdf
+*.opensdf
+*.tlog/
+*.lastbuildstate
+*.recipe
+*.sys
+*.cat
+*.lib
+*.exp
+*.dll
+*.exe
+!/devcon.exe
+
+# Signing key material (public .cer certificates may be committed if needed)
+*.pfx
+*.p12
+*.pvk
+*.snk
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini

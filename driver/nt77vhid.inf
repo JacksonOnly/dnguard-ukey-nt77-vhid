@@ -1,0 +1,59 @@
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%ProviderName%
+DriverVer=09/17/2026,1.0.0.1
+CatalogFile=nt77vhid.cat
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Nt77Vhid.CopyFiles = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,
+
+[SourceDisksFiles]
+nt77vhid.sys = 1
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%DeviceDescription%=Nt77Vhid_Install,Root\NT77VHID
+
+[Nt77Vhid_Install.NT]
+CopyFiles=Nt77Vhid.CopyFiles
+
+[Nt77Vhid.CopyFiles]
+nt77vhid.sys
+
+[Nt77Vhid_Install.NT.HW]
+AddReg=Nt77Vhid_VhfLowerFilter
+
+[Nt77Vhid_VhfLowerFilter]
+HKR,,"LowerFilters",0x00010000,"vhf"
+
+[Nt77Vhid_Install.NT.Services]
+AddService=nt77vhid,0x00000002,Nt77Vhid_Service
+
+[Nt77Vhid_Service]
+DisplayName=%ServiceDescription%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\nt77vhid.sys
+
+[Nt77Vhid_Install.NT.Wdf]
+KmdfService=nt77vhid,Nt77Vhid_WdfSection
+
+[Nt77Vhid_WdfSection]
+KmdfLibraryVersion=1.15
+
+[Strings]
+ProviderName="XiangHongMing"
+ManufacturerName="XiangHongMing"
+DeviceDescription="NT77 Virtual HID Source Device"
+ServiceDescription="NT77 Virtual HID Source Driver"
+DiskName="NT77 Virtual HID Installation Media"
